@@ -1,0 +1,29 @@
+.logo{
+    color: #4e02bf;
+}
+
+.navbar{
+    background-color: white;
+    opacity: 0.5;
+    display: flex;
+}
+
+.navbar ul li{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+li{
+    float: left;
+}
+
+li a{
+    display:block;
+    padding:8px;
+    color: #4e02bf;
+}
+
+.login{
+    margin-top: 24px;
+    padding:0;
+}
