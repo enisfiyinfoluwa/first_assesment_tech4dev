@@ -5,20 +5,26 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
 <body>
     <div style="background-image: url(./assets/stage.webp);
     background-size: cover; height: 480px; ">
+        <div class="seperator"></div>
         <nav class="navbar">
             <div>
-                <h2 class="logo">rendesvous</h2>
+                <h2 class="logo">rendezvous</h2>
             </div>
-            <ul>
-                <li><a>Discover</a></li>
-                <li><a>About us</a></li>
-                <li><a>FAQs</a></li>
-                <li><a>Contact us</a></li>
-            </ul>
+            <div>
+                <ul class="navlink">
+                    <li><a>Discover</a></li>
+                    <li><a>About us</a></li>
+                    <li><a>FAQs</a></li>
+                    <li><a>Contact us</a></li>
+                </ul>
+            </div>
+
             <div class="login">
                 <button>
                     Log in
@@ -56,22 +62,12 @@
         <div>
             <h2>Trending events</h2>
             <a href="#">View all trending events :arrow</a>
-        </div>
+        </div>  
         <div>
-            <div>
-                <div>
-                    <img src="./assets/card-one.jpeg">
-                    
-                </div>
-                <div>
-                    <img src="./assets/caard-two.png">
-                </div>
-                <div>
-                    <img src="./assets/card-three.jpeg">
-                </div>
+            <div id="storeItems">
             </div>
         </div>
     </div>
-    
+    <script src="js/index.js" defer type ="module"></script>
 </body>
 </html>
