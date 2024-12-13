@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
+    <!-- <style>
         .product-details {
-            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             border: 1px solid #ccc;
@@ -26,12 +27,82 @@
 
         .product-details p {
             margin: 5px 0;
-        }
+        } -->
     </style>
 </head>
 <body>
+    <div>
+        <nav class="bg-white flex mx-20 pl-8 h-16 space-x-80">
+            <div class="mt-3 ">
+
+                <h2 class="text-[#4e02bf] font-bold text-2xl font-sans">rendezvous</h2>
+            </div>
+            <div class="mt-3 ">
+                <ul class="list-none m-0 p-0">
+                    <li class="float-left"><a class="block p-2 font-sans font-bold text-sm text-[#4e02bf]">Discover</a></li>
+                    <li class="float-left"><a class="block p-2 font-sans font-bold text-sm text-[#4e02bf]">About us</a></li>
+                    <li class="float-left"><a class="block p-2 font-sans font-bold text-sm text-[#4e02bf]">FAQs</a></li>
+
+                    <li class="float-left"><a class="block p-2 font-sans font-bold text-sm text-[#4e02bf]">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class=" mt-3 space-x-4">
+                <button class="px-8 font-sans font-bold text-sm text-[#4e02bf]">
+                    Log in
+                </button>
+                <button class=" px-8 py-3 font-sans font-bold text-sm text-white bg-[#783EAD] rounded-xl ">
+                    Sign up
+                </button>
+            </div>
+        </nav>
+    </div>
     <div class="product-details" id="productDetails">
         <p>Loading product details...</p>
+    </div>
+    <div class="bg-[#432361] py-12">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row items-start">
+            <div class="ml-16 mt-16 mb-48 ">
+              <h1 class="font-bold text-3xl font-sans text-white">
+                rendezvous
+              </h1>
+              <p class="w-80  mt-2 text-base text-white">
+                Your Personal Event Sherpa: Curating Awesome, One Click at a Time.
+              </p>
+            </div>
+  
+            <div class="grid grid-cols-1 ml-[21rem] mt-14 md:grid-cols-3 gap-8 md:gap-x-20">
+              <div>
+                <h1 class="text-xl font-bold text-white mb-4">Feature</h1>
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-white ">Events discovery</a></li>
+                  <li><a href="#" class="text-white ">Ticketing</a></li>
+                </ul>
+              </div>
+  
+              <div>
+                <h1 class="text-xl font-bold text-white mb-4">Company</h1>
+                <ul classN="space-y-2">
+                  <li><a href="#" class="text-white hover:text-gray-800">About us</a></li>
+                  <li><a href="#" class="text-white hover:text-gray-800">FAQs</a></li>
+                  <li><a href="#" class="text-white hover:text-gray-800">Careers</a></li>
+                  <li><a href="#" class="text-white hover:text-gray-800">Support</a></li>
+                </ul>
+              </div>
+  
+              <div>
+                <h1 class="text-xl font-bold text-white mb-4">Contact us</h1>
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-white hover:text-gray-800">info@events.com</a></li>
+                  <li><a href="#" class="text-white hover:text-gray-800">+234 701 345 6789</a></li>
+                  <li><a href="#" class="text-white hover:text-gray-800">Race Course, 8/9 Marina, Onikan, Lagos Lagos, 4aa Force Rd, Lagos Island 102273, Lagos</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 
     <script type="module">
@@ -39,13 +110,14 @@
 
         const productService = new ProductService();
         const productDetailsContainer = document.getElementById("productDetails");
+        productDetailsContainer.className= "mx-16 mt-6"
 
         // Get the product ID from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get("id");
 
         if (!productId) {
-            productDetailsContainer.innerHTML = "<p>Invalid product ID!</p>";
+            productDetailsContainer.innerHTML = "   <p>Invalid product ID!</p>";
         } else {
             (async () => {
                 try {
@@ -54,12 +126,46 @@
 
                     // Render the product details
                     productDetailsContainer.innerHTML = `
-                        <img src="${product.image}" alt="${product.title}">
-                        <h2>${product.title}</h2>
-                        <p><strong>Price:</strong> $${product.price}</p>
-                        <p><strong>Category:</strong> ${product.category}</p>
-                        <p><strong>Description:</strong> ${product.description}</p>
-                        <p><strong>Rating:</strong> ${product.rating.rate} (${product.rating.count} reviews)</p>
+                        <div>
+                            <img class="w-[81.9rem] h-[30rem] object-cover" src="${product.image}" alt="${product.title}">
+                            <h2 class= "mt-12 font-bold text-2xl">${product.title}</h2>
+                            <div>
+                                <p class="mt-4"> <strong class= "text-[#9B51E0] ">Category:</strong> ${product.category} <strong class= "text-[#9B51E0]">Rating:</strong> ${product.rating.rate} (${product.rating.count} reviews)</p>
+                                <p></p> 
+                            </div>
+                            <div class= "mt-12">
+                                <p><strong>Product Description:</strong> </p>
+                                <p class="mt-5 w-[54.6rem]">${product.description}</p>
+                            </div>
+
+
+                            <p class="mt-10 mb-5"><strong>Price:</strong></p>
+                            <div class="flex ">
+                                <div>
+                                    <p class="text-xl font-medium">
+                                        Single 
+                                    </p>
+                                    <p class= "text-[#9B51E0] text-base font-bold">
+                                        $${product.price}
+                                    </p>
+                                </div>
+                                <div class= "ml-16">
+                                    <p class="text-xl font-medium">
+                                        Pair 
+                                    </p>
+                                    <p class= "text-[#9B51E0] text-base font-bold">
+                                        $${2* product.price -(0.1*product.price)}
+                                    </p>
+                                </div>
+                            </div>
+                            <button class=" my-6 w-40 h-11  font-sans font-semibold text-base text-white bg-[#783EAD] rounded-xl ">Buy now</button>
+                            <div class="mb-36"></div>
+
+
+
+                           
+                        </div>
+
                     `;
                 } catch (error) {
                     productDetailsContainer.innerHTML = "<p>Error loading product details. Please try again later.</p>";
